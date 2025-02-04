@@ -14,6 +14,8 @@
             margin: 0;
             padding: 0;
             color: white;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+            max-width: 100vw; /* Ensure content fits screen width */
         }
         .navbar {
             background-color: rgba(0, 0, 0, 0.8);
@@ -21,11 +23,13 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap; /* Ensures navbar remains responsive */
         }
         .nav-links {
             list-style: none;
             padding: 0;
             display: flex;
+            flex-wrap: wrap; /* Prevents overflow */
         }
         .nav-links li {
             margin: 0 15px;
@@ -53,13 +57,32 @@
         .resume-section {
             margin-bottom: 20px;
         }
+        .resume-section h2 {
+            border-bottom: 2px solid white;
+            padding-bottom: 5px;
+        }
+        .download-btn {
+            display: inline-block;
+            padding: 12px 20px;
+            background-color: #ff6b6b;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-top: 15px;
+            transition: background 0.3s;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+        .download-btn:hover {
+            background-color: #ff4757;
+        }
         .footer-content {
             background-color: rgba(0, 0, 0, 0.8);
             color: white;
             text-align: center;
             padding: 20px;
-            position: relative;
-            bottom: 0;
             width: 100%;
             font-size: 16px;
         }
@@ -72,6 +95,25 @@
         }
         .social-links a:hover {
             color: #ff6b6b;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                text-align: center;
+            }
+            .nav-links {
+                padding-top: 10px;
+                display: block;
+            }
+            .nav-links li {
+                display: block;
+                margin: 10px 0;
+            }
+            .resume-container {
+                padding: 20px;
+            }
         }
     </style>
 </head>
@@ -93,12 +135,13 @@
         <section class="resume-container">
             <div class="resume-section">
                 <h2>Education</h2>
-                <p>Computer Science major and minor in Business - University of Colorado Boulder</p>
+                <p><strong>University of Colorado Boulder</strong></p>
+                <p>Computer Science Major, Business Minor</p>
             </div>
             <div class="resume-section">
                 <h2>Work Experience</h2>
-                <p><strong>Work Experience</strong> - Lifetime Fitness Empoyee</p>
-                <p>Developed leadership skills</p>
+                <p><strong>Lifetime Fitness Employee</strong></p>
+                <p>Developed leadership skills and improved teamwork abilities.</p>
             </div>
             <div class="resume-section">
                 <h2>Skills</h2>
@@ -108,12 +151,11 @@
                     <li>Machine Learning & AI</li>
                 </ul>
             </div>
-        <div>
-            <a href="../resources/Ethan Doyle's Resume.pdf" target="_blank" download="filename.pdf">
-                <button>Download PDF</button>
-              </a>
-        </div>
-
+            <div style="text-align: center;">
+                <a href="../resources/Ethan Doyle's Resume.pdf" target="_blank" download="Ethan_Doyle_Resume.pdf">
+                    <button class="download-btn">Download PDF</button>
+                </a>
+            </div>
         </section>
     </main>
     
